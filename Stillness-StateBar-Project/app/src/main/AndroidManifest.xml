@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".ColorAct"
             android:theme="@style/FullBleedTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,6 +17,18 @@
                 <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/FullBleedTheme">
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
+        </activity>
+        <activity
+            android:name=".ActionBarAct"
+            android:theme="@style/ActionBarTheme">
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="com.readystatesoftware.systembartint.SAMPLE" />
         </activity>
     </application>
 
