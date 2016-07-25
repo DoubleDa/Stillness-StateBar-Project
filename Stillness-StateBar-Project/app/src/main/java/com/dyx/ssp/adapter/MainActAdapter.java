@@ -22,6 +22,16 @@ import java.util.List;
 public class MainActAdapter extends RecyclerView.Adapter<MainActAdapter.ItemViewHolder> {
     private List<String> mDataList;
 
+    private OnRvItemClickListener mOnRvItemClickListener;
+
+    public interface OnRvItemClickListener {
+        void onRvItemClick(int pos);
+    }
+
+    public void setmOnRvItemClickListener(OnRvItemClickListener mOnRvItemClickListener) {
+        this.mOnRvItemClickListener = mOnRvItemClickListener;
+    }
+
     public MainActAdapter(List<String> mDataList) {
         this.mDataList = mDataList;
     }
@@ -33,8 +43,17 @@ public class MainActAdapter extends RecyclerView.Adapter<MainActAdapter.ItemView
     }
 
     @Override
-    public void onBindViewHolder(ItemViewHolder holder, int position) {
+    public void onBindViewHolder(final ItemViewHolder holder, int position) {
         holder.mTextView.setText(mDataList.get(position));
+        if (mOnRvItemClickListener != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int pos = holder.getLayoutPosition();
+                    mOnRvItemClickListener.onRvItemClick(pos);
+                }
+            });
+        }
     }
 
     @Override
